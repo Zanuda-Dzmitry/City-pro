@@ -3,7 +3,9 @@ const swiper = new Swiper('.heroSwiper', {
 	loop: true,
 
 	pagination: {
+		el1: ".swiper-btn",
 		el: '.swiper-pagination',
+		clickable: true
 	},
 
 	navigation: {
@@ -23,6 +25,7 @@ const servicesSwiper = new Swiper('.servicesSwiper', {
 
 	pagination: {
 		el: '.swiper-pagination',
+		clickable: true
 	},
 
 	navigation: {
@@ -41,6 +44,7 @@ const portfolioSwiper = new Swiper('.portfolioSwiper', {
 
 	pagination: {
 		el: '.swiper-pagination',
+		clickable: true
 	},
 
 	navigation: {
