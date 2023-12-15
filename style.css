@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
 * Prefixed by https://autoprefixer.github.io
 * PostCSS: v8.4.14,
@@ -5,7 +6,6 @@
 * Browsers: last 4 version
 */
 
-@charset "UTF-8";
 @font-face {
   font-family: "Gilroy";
   src: url("fonts/Gilroy-Regular.woff") format("woff");
@@ -34,12 +34,7 @@
   font-weight: 600;
   font-display: swap;
 }
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.4.14,
-* Autoprefixer: v10.4.7
-* Browsers: last 4 version
-*/
+ 
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -2401,11 +2396,9 @@ img {
     font-size: 40px;
   }
   .about .about__container .about__list {
-    -ms-grid-columns: (476px)[2];
     grid-template-columns: repeat(2, 476px);
   }
   .about .about__container-icon .about__list-icon {
-    -ms-grid-columns: (233px)[4];
     grid-template-columns: repeat(4, 233px);
   }
   .services {
@@ -2428,9 +2421,7 @@ img {
     font-size: 40px;
   }
   .trust .trust__container .trust__list {
-    -ms-grid-columns: (370px)[1];
     grid-template-columns: repeat(1, 370px);
-    -ms-grid-rows: (260px)[3];
     grid-template-rows: repeat(3, 260px);
     -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -2487,7 +2478,6 @@ img {
     font-size: 40px;
   }
   .application .application__container .application__grid {
-    -ms-grid-columns: (476px)[2];
     grid-template-columns: repeat(2, 476px);
   }
   .contacts .contacts__container {
@@ -2665,7 +2655,6 @@ img {
     border-radius: 20px;
   }
   .about .about__container-icon .about__list-icon {
-    -ms-grid-columns: (368px)[2];
     grid-template-columns: repeat(2, 368px);
   }
   .services {
@@ -2687,9 +2676,7 @@ img {
     font-size: 35px;
   }
   .trust .trust__container .trust__list {
-    -ms-grid-columns: (370px)[1];
     grid-template-columns: repeat(1, 370px);
-    -ms-grid-rows: (260px)[3];
     grid-template-rows: repeat(3, 260px);
     -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -2775,7 +2762,6 @@ img {
     margin-bottom: 30px;
   }
   .application .application__container .application__grid {
-    -ms-grid-columns: (348px)[2];
     grid-template-columns: repeat(2, 348px);
     row-gap: 20px;
     margin-bottom: 25px;
@@ -2843,7 +2829,6 @@ img {
     height: 155px;
   }
   .modal .modal__content .modal__container {
-    -ms-grid-columns: (1fr)[2];
     grid-template-columns: repeat(2, 1fr);
   }
   .modal .modal__content .modal__container .modal__left .modal__left-title {
@@ -3011,7 +2996,6 @@ img {
   .hero .hero__swiper .hero__wrapper .hero__slide .hero__container {
     -ms-grid-columns: 280px;
     grid-template-columns: 280px;
-    -ms-grid-rows: (230px)[2];
     grid-template-rows: repeat(2, 230px);
         grid-template-areas: "hero-right" "hero-left";
     padding-top: 81px;
