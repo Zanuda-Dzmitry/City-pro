@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
 * Prefixed by https://autoprefixer.github.io
 * PostCSS: v8.4.14,
@@ -5,7 +6,6 @@
 * Browsers: last 4 version
 */
 
-@charset "UTF-8";
 @font-face {
   font-family: "Gilroy";
   src: url("fonts/Gilroy-Regular.woff") format("woff");
