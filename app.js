@@ -1,1 +1,160 @@
-"use strict";var e="modal--active",t=document.getElementById("modalBtnClose"),n=document.getElementById("modal"),a=document.querySelector(".hero__btn"),o=document.querySelectorAll(".services__slide-link");a.addEventListener("click",(function(){n.classList.add(e)})),o.forEach((function(t){t.addEventListener("click",(function(){n.classList.add(e)}))})),t.addEventListener("click",(function(){n.classList.remove(e)}));var l=document.getElementById("burger"),i=document.querySelector(".header__nav");l.addEventListener("click",(function(){this.classList.toggle("burger--active"),i.classList.toggle("header__nav--active")}));var c=document.querySelector(".about__item-text-1"),r=document.getElementById("aboutBtn"),s=document.getElementById("about");r.addEventListener("click",(function(){s.classList.add("about--active"),c.classList.remove("about__item-text-1")}));var d=document.querySelectorAll(".portfolio__btn"),u=document.querySelector(".portfolio"),v=document.querySelectorAll(".portfolio__left-text-1");d.forEach((function(e){e.addEventListener("click",(function(){u.classList.add("portfolio--active"),v.forEach((function(e){e.classList.remove("portfolio__left-text-1")}))}))}));var m=document.getElementById("btn-scroll");addEventListener("scroll",(function(){window.pageYOffset>500?m.classList.remove("invisible"):m.classList.add("invisible")}),{passive:!0}),m.addEventListener("click",(function(){window.scrollTo({top:0,behavior:"smooth"})}));var f=document.getElementById("application-form"),L=document.getElementById("modal-form"),_=document.querySelectorAll(".application__input"),p=document.querySelectorAll(".modal__right-input"),g=document.querySelector(".modal__right"),E=document.querySelector(".application__grid");function y(e,t,n){var a="in-valid";function o(e,o){var l=e.parentNode,i=document.createElement("label");i.textContent=o,e.classList.add(a),t.classList.add(n),i.classList.add("error-label"),l.append(i)}var l=!0;return e.forEach((function(e){!function(e){var o=e.parentNode;e.classList.contains(a)&&(o.querySelector("label").remove(),e.classList.remove(a),t.classList.remove(n))}(e),"true"==e.dataset.tel&&(e.value?isNaN(e.value)?(o(e,"Ввод не является числом!"),l=!1):e.value.length<6?(o(e,"Номер слишком короткий!"),l=!1):e.classList.add("is-valid"):(o(e,"Поле обязательно для заполнения!"),l=!1)),e.dataset.name&&e.value&&(isNaN(e.value)?e.value.length>15?(o(e,"Максимальное количество символов 15!"),l=!1):e.value.length<3?(o(e,"Минимальное количество символов 3!"),l=!1):e.classList.add("is-valid"):(o(e,"Ввод не является строкой!"),l=!1))})),1==l&&e.forEach((function(e){return e.classList.remove("is-valid")})),l}f.addEventListener("submit",(function(e){e.preventDefault(),1==y(_,E,"application__grid--error")&&e.target.reset()})),L.addEventListener("submit",(function(e){e.preventDefault(),1==y(p,g,"input-mb")&&e.target.reset()}));
+// Modal
+
+const modalActive = 'modal--active'
+
+const modalBtnClose = document.getElementById('modalBtnClose'),
+	modal = document.getElementById('modal'),
+	heroBtn = document.querySelector('.hero__btn'),
+	servicesLink = document.querySelectorAll('.services__slide-link')
+
+	heroBtn.addEventListener('click', () => {
+		modal.classList.add(modalActive)
+	})
+
+servicesLink.forEach(btn => {
+	btn.addEventListener('click', () => {
+		modal.classList.add(modalActive)
+	})
+})
+
+modalBtnClose.addEventListener('click', () => {
+	modal.classList.remove(modalActive)
+})
+
+// Burger-menu
+
+const burger = document.getElementById('burger'),
+	headerNav = document.querySelector('.header__nav')
+
+burger.addEventListener('click', function () {
+	this.classList.toggle('burger--active')
+	headerNav.classList.toggle('header__nav--active')
+})
+
+// About mobile
+const classAboutText = 'about__item-text-1'
+const aboutText = document.querySelector('.about__item-text-1'),
+	aboutBtn = document.getElementById('aboutBtn'),
+	about = document.getElementById('about')
+
+aboutBtn.addEventListener('click', function () {
+	about.classList.add('about--active')
+	aboutText.classList.remove('about__item-text-1')
+})
+
+// Portfolio mobile
+
+const portfolioBtn = document.querySelectorAll('.portfolio__btn'),
+	portfolio = document.querySelector('.portfolio'),
+	portfolioText = document.querySelectorAll('.portfolio__left-text-1')
+
+portfolioBtn.forEach(btn => {
+	btn.addEventListener('click', function () {
+		portfolio.classList.add('portfolio--active')
+		portfolioText.forEach(el => {
+			el.classList.remove('portfolio__left-text-1')
+		})
+	})
+})
+
+// Scroll btn
+const btnScroll = document.getElementById('btn-scroll');
+
+addEventListener('scroll', function () {
+  if (window.pageYOffset > 500) {
+    btnScroll.classList.remove('invisible');
+  } else { btnScroll.classList.add('invisible') };
+}, { passive: true });
+
+btnScroll.addEventListener('click', function () {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Validation
+
+const applicationForm = document.getElementById('application-form'),
+		modalForm = document.getElementById('modal-form'),
+		applicationInputs = document.querySelectorAll('.application__input'),
+		modalInputs = document.querySelectorAll('.modal__right-input'),
+		modalRight = document.querySelector('.modal__right'),
+		applicationGrid = document.querySelector('.application__grid')
+	
+
+function formValidation(inputs, blok, classMB) {
+const classError = 'in-valid'
+  function removeError(input) {
+    const parent = input.parentNode;
+
+    if (input.classList.contains(classError)) {
+      parent.querySelector('label').remove()
+      input.classList.remove(classError)
+			blok.classList.remove(classMB)
+    }
+  }
+
+// Добавление классов если форма не прошла проверку.
+  function createError(input, text) {
+    const parent = input.parentNode;
+    const errorLabel = document.createElement('label');
+
+    errorLabel.textContent = text;
+    input.classList.add(classError);
+		blok.classList.add(classMB)
+    errorLabel.classList.add('error-label');
+    parent.append(errorLabel)
+  }
+
+  let result = true;
+// Проверка формы, и добавление класса если форма прошла проверку.
+  inputs.forEach(input => {
+    removeError(input)
+    if (input.dataset.tel == 'true') {
+		
+      if (!input.value) {
+        createError(input, 'Поле обязательно для заполнения!')
+        result = false
+      } else if (isNaN(input.value)) {
+ 				createError(input, 'Ввод не является числом!')
+				 result = false
+			} else if (input.value.length < 6) {
+ 				createError(input, 'Номер слишком короткий!')
+				 result = false
+			} else { input.classList.add('is-valid') }
+    }
+
+    if (input.dataset.name) { 
+			if (input.value) {
+ 				if (!isNaN(input.value)) {
+        createError(input, 'Ввод не является строкой!')
+        result = false
+      } else if (input.value.length > 15) {
+ 				createError(input, 'Максимальное количество символов 15!')
+        result = false
+			} else if (input.value.length < 3) {
+ 				createError(input, 'Минимальное количество символов 3!')
+        result = false
+			} else { input.classList.add('is-valid') }
+			}
+    }
+  })
+
+  if (result == true) inputs.forEach(input => input.classList.remove('is-valid'));
+  return result
+
+}
+
+applicationForm.addEventListener('submit', function (el) {
+  el.preventDefault()
+  if (formValidation(applicationInputs, applicationGrid, 'application__grid--error') == true) {
+    // Очистка формы.
+    el.target.reset()
+  }
+})
+modalForm.addEventListener('submit', function (el) {
+  el.preventDefault()
+ 	if (formValidation(modalInputs, modalRight, 'input-mb') == true) {
+    // Очистка формы.
+    el.target.reset()
+  }
+ 
+})
